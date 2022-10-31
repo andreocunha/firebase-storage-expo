@@ -1,5 +1,5 @@
 import { StyleSheet, StatusBar } from "react-native";
-// #041833
+
 export default StyleSheet.create({
     container: {
         flex: 1,
