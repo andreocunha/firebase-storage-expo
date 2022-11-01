@@ -7,6 +7,19 @@ export default StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         marginBottom: 20,
+        borderRadius: 10,
+
+        backgroundColor: "gray",
+        
+        shadowColor: "gray",
+        shadowOffset: {
+            width: 2,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 5,
     },
     imagem: {
         width: "100%",

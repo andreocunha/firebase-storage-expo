@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { View, Text, TextInput, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Alert } from "react-native";
+import { salvarPost, atualizarPost } from "../../servicos/firestore";
 import estilos from "./estilos";
 
 export default function Post({ navigation, route }) {
@@ -7,6 +8,28 @@ export default function Post({ navigation, route }) {
     const [titulo, setTitulo] = useState(item?.titulo || "");
     const [fonte, setFonte] = useState(item?.fonte || "");
     const [descricao, setDescricao] = useState(item?.descricao || "");
+
+    async function salvar() {
+        const data = { titulo, fonte, descricao };
+        const resultado = await salvarPost(data);
+        if (resultado === "ok") {
+            navigation.goBack();
+        }
+        else {
+            Alert.alert("Erro ao salvar");
+        }
+    }
+
+    async function atualizar() {
+        const data = { titulo, fonte, descricao };
+        const resultado = await atualizarPost(item.id, data);
+        if (resultado === "ok") {
+            navigation.goBack();
+        }
+        else {
+            Alert.alert("Erro ao atualizar");
+        }
+    }
 
     return (
         <View style={estilos.container}>
@@ -38,7 +61,7 @@ export default function Post({ navigation, route }) {
                 />
             </ScrollView>
 
-            <TouchableOpacity style={estilos.botao} onPress={() => navigation.goBack()}>
+            <TouchableOpacity style={estilos.botao} onPress={item ? atualizar : salvar}>
                 <Text style={estilos.textoBotao}>Salvar</Text>
             </TouchableOpacity>
         </View>
