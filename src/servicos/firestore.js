@@ -3,8 +3,8 @@ import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, onSnapsh
 
 export async function salvarPost(data){
   try {
-    const result = await addDoc(collection(db, 'posts'), data)
-    return result.id
+    await addDoc(collection(db, 'posts'), data)
+    return 'ok'
   } catch(error){
     console.log('Erro add post:', error)
     return 'erro'
