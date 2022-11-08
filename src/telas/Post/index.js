@@ -18,8 +18,8 @@ export default function Post({ navigation, route }) {
     const [mostrarMenu, setMostrarMenu] = useState(false);
 
     async function salvar() {
-        const data = { titulo, fonte, descricao, imagem: imagem ? imagem : null };
-        const resultado = await salvarPost(data);
+        const dados = { titulo, fonte, descricao, imagem: imagem ? imagem : null };
+        const resultado = await salvarPost(dados);
         if (resultado !== "erro") {
             verificarESalvarImagem(resultado);
             navigation.goBack();
@@ -30,8 +30,8 @@ export default function Post({ navigation, route }) {
     }
 
     async function atualizar() {
-        const data = { titulo, fonte, descricao, imagem: imagem ? imagem : null };
-        const resultado = await atualizarPost(item.id, data);
+        const dados = { titulo, fonte, descricao, imagem: imagem ? imagem : null };
+        const resultado = await atualizarPost(item.id, dados);
         if (resultado === "ok") {
             verificarESalvarImagem(item.id);
             navigation.goBack();

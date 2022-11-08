@@ -1,9 +1,9 @@
 import { db } from "../config/firebase";
 import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, onSnapshot } from "firebase/firestore"
 
-export async function salvarPost(data){
+export async function salvarPost(dados){
   try {
-    const result = await addDoc(collection(db, 'posts'), data)
+    const result = await addDoc(collection(db, 'posts'), dados)
     return result.id
   } catch(error){
     console.log('Erro add post:', error)
@@ -37,10 +37,10 @@ export async function pegarPostsTempoReal(setposts){
   })
 }
 
-export async function atualizarPost(postID, data){
+export async function atualizarPost(postID, dados){
   try {
     const postRef = doc(db, "posts", postID);
-    await updateDoc(postRef, data)
+    await updateDoc(postRef, dados)
     return 'ok'
   }
   catch(error){
