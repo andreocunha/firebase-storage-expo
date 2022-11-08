@@ -9,11 +9,17 @@ export default StyleSheet.create({
         paddingTop: StatusBar.currentHeight,
         padding: 20,
     },
+    containerTitulo: {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
     titulo: {
         color: "#D9D9D9",
         fontSize: 22,
         fontWeight: "500",
-        marginVertical: 20,
+        marginBottom: 10,
         textAlign: "center",
     },
     texto: {
@@ -31,7 +37,7 @@ export default StyleSheet.create({
         width: "100%",
     },
     inputDescricao: {
-        height: 150,
+        height: 100,
         textAlignVertical: "top",
         textAlign: "left"
     },
@@ -49,4 +55,21 @@ export default StyleSheet.create({
         fontSize: 16,
         fontWeight: "500",
     },
+    imagem: {
+        width: "100%",
+        height: 200,
+        borderRadius: 5,
+        marginVertical: 10,
+    },
+    opcao: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        color: '#000',
+        paddingHorizontal: 20,
+        width: "100%",
+        height: 50,
+        borderBottomWidth: 1,
+        borderBottomColor: "#ccc"
+    }
 });
